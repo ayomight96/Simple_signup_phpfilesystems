@@ -1,0 +1,36 @@
+<style type="text/css">
+    input {
+        background-color: rgb(250, 248, 248);
+        border-style: solid;
+        border-color: #999;
+        border: 0px 4px 0px 4px;
+        padding: 3px 6px 3px 6px;
+        margin: 10px 0;
+    }
+    input:focus {
+        border-style: solid;
+        border-color: rgb(233, 227, 227);
+    }
+    body {
+    text-align: center;
+}
+form {
+    display: inline-block;
+}
+    </style>
+<html>
+<body style="background-color:rgb(211, 230, 233);">
+    <table style="margin-left:auto;margin-right:auto;">
+        <form id = "signup" method="post" action="welcome.php">
+        <tr><label><td><h1>SIGN UP PAGE</h1></td></label></tr><br><br>
+        <tr><td><label>Username (No more than 15 Characters): </label></td><td><input name = "username" type = "text" placeholder = "Johndoe" pattern = "[A-Za-z0-9_]{1,15}" required></td></tr><br><br>
+        <tr><td><label>First Name: </label></td><td><input name = "first_name" type = "text" placeholder = "John" required></td></tr><br><br>
+        <tr><td><label>Last Name: </label></td><td><input name = "last_name" type = "text" placeholder = "Doe" required></td></tr><br><br>
+        <tr><td><label>Email: </label></td><td><input name = "email" type = "email" placeholder = "johndoe@yahoo.com" required></td></tr>
+        <tr><td><label>Password (minimum of 3 Characters): </label></td><td><input name = "password" type = "password" placeholder = "Password" pattern = ".{3,}" required></td></tr>
+        <tr><td><label>Re-enter Password: </label></td><td><input name = "password1" type = "password" placeholder = "Re-enter Password" pattern = ".{3,}" required></td></tr>
+        <tr><td></td><td><button style="height:40px;width:200px" type = "submit" class = "submit" name = "sign">Sign Up</button></td></tr>
+</form>   
+</table>
+</body>
+</html>
