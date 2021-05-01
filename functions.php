@@ -1,9 +1,14 @@
 <?php
-
+//This functions stores the user data into a txt file and uses the 
+//users email as the file name. It takes in two arrays the first is
+//the array containing the raw user data, the second is th array containing
+//the user data with each element concatenated with a space
 function store_file($input, $data){
     
+    //stores the user content into the file
     file_put_contents('files/'. $input[3].".txt", $data);
     
+    //checks if the file has been succesffully stored ad returns 1
     if (file_exists('files/'. $input[3].".txt")){
         return 1;
     } else {
@@ -47,6 +52,7 @@ function add_space($input){
         return $input;
 }
 
+//this function helps the user rest his password
 function reset_password(){
     print <<<_HTML_
     <html>
@@ -63,21 +69,33 @@ function reset_password(){
     return $new_password = [$_POST['new_password'], $_POST['new_password1']];
 }
 
+//this function here extracts user data from an existing file and returns an array containing all the user data
 function extract_data($input){
+    
+    //this checks if the user exists
     if (file_exists('files/'. $input[0].".txt")){
+        //if the file exists it extracts the file
         $user = file_get_contents('files/'. $input[0].".txt"); 
+        
+        //the data exctracted is converted to an array
         $user = explode (",", $user);
+        //the array is returned
         return $user;        
     } else {
         return 0;
     } 
 }
-//This function extracts the data 
+//This function resets the user password  
 function resetPassword ($email, $password){
+    //checks if the user files  exists
     if (file_exists('files/'. $email.".txt")){
+        //gets all the file contents
         $user = file_get_contents('files/'. $email.".txt"); 
+        //converts all the user contents into an array
         $user = explode (",", $user);
+        //Updates the user's password
         $user[4] = $password;
+        //returns the updated array file
         return $user;
 } else {
     return 0;
